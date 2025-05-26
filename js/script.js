@@ -181,7 +181,7 @@ async function includeHTML(elementId, path) {
 // Load navbar and footer
 document.addEventListener('DOMContentLoaded', function() {
     // Load navbar
-    fetch('/navbar.html')
+    fetch('navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar-container').innerHTML = data;
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error loading navbar:', error));
 
     // Load footer
-    fetch('/footer.html')
+    fetch('footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-container').innerHTML = data;
@@ -228,3 +228,24 @@ function setActiveNavLink() {
 
 // Also call setActiveNavLink when URL changes
 window.addEventListener('popstate', setActiveNavLink);
+
+// Animation on scroll
+function animateOnScroll() {
+  const elements = document.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up');
+  
+  elements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const elementBottom = element.getBoundingClientRect().bottom;
+    
+    // Check if element is in viewport
+    if (elementTop < window.innerHeight && elementBottom > 0) {
+      element.classList.add('animate');
+    }
+  });
+}
+
+// Run animation on load and scroll
+document.addEventListener('DOMContentLoaded', () => {
+  animateOnScroll();
+  window.addEventListener('scroll', animateOnScroll);
+}); 
