@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Add active class to current page link
 function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
@@ -218,8 +218,8 @@ function setActiveNavLink() {
         
         // Check if this is the current page
         if (pageName === currentPage || 
-            (currentPage === '' && pageName === 'home.html') ||
-            (currentPage === 'index.html' && pageName === 'home.html')) {
+            (currentPage === '' && pageName === 'index.html') ||
+            (currentPage === 'index.html' && pageName === 'index.html')) {
             link.classList.add('active');
             link.style.borderTop = '3px solid var(--primary-color)';
         }
