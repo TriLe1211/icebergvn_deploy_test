@@ -115,7 +115,7 @@ function updateLanguageButton() {
   if (!flag) return; // Thoát nếu không tìm thấy hình ảnh
 
   // Sử dụng đường dẫn tuyệt đối
-  const imgPath = "/img/";
+  const imgPath = "img/";
 
   if (currentLang === "vi") {
     flag.src = imgPath + "vn-flag.png";
